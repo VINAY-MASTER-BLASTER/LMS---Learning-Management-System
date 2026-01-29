@@ -2,45 +2,47 @@
 📚 The Learning Management System (LMS) is a full-stack web application developed using the MERN stack (MongoDB, Express.js, React.js, Node.js). It provides an online platform where students can enroll in courses, watch video lessons, download materials, and track their learning progress, while instructors can create and manage courses.
 
 
-# 🔧 Technology Stack
+#### 🔧 Technology Stack
 
-Frontend: React.js
-Backend: Node.js, Express.js
-Database: MongoDB (Mongoose ODM)
-Authentication: JWT (JSON Web Token)
-File Storage: Cloudinary (for videos/images)
-Other Tools: Multer, Bcrypt.js, CORS, Dotenv
-✨ Key Features
-👨‍🎓 Student Module
+Frontend: React.js <br>
+Backend: Node.js, Express.js <br>
+Database: MongoDB (Mongoose ODM) <br>
+Authentication: JWT (JSON Web Token) <br>
+File Storage: Cloudinary (for videos/images) <br>
+Other Tools: Multer, Bcrypt.js, CORS, Dotenv <br>
+✨ Key Features <br>
+👨‍🎓 Student Module <br>
+<br>
+<br>
+User registration and login <br>
+Browse available courses <br>
+Enroll in courses <br>
+Watch video lectures <br>
+Download learning resources <br>
+Track course progress <br>
+Update profile <br>
 
-User registration and login
-Browse available courses
-Enroll in courses
-Watch video lectures
-Download learning resources
-Track course progress
-Update profile
+#### 👨‍🏫 Instructor/Admin Module
+Create, update, and delete courses <br>
+Upload videos and materials <br>
+Manage students <br>
+View enrollments <br>
+Control course content <br>
 
-# 👨‍🏫 Instructor/Admin Module
-Create, update, and delete courses
-Upload videos and materials
-Manage students
-View enrollments
-Control course content
+#### 🔐 Authentication & Security
+JWT-based authentication <br>
+Password hashing using bcrypt <br>
+Protected routes for users and admins <br>
+Role-based access control <br>
 
-# 🔐 Authentication & Security
-JWT-based authentication
-Password hashing using bcrypt
-Protected routes for users and admins
-Role-based access control
-⚙️ System Architecture
-React.js handles the user interface and communicates with backend APIs.
-Express.js & Node.js manage server logic and REST APIs.
-MongoDB stores users, courses, lessons, and enrollments.
-Cloudinary is used for media storage.
-JWT tokens secure user sessions.
-The frontend sends requests to the backend APIs, which process data and interact with MongoDB. Responses are returned in JSON format.
+#### ⚙️ System Architecture
+React.js handles the user interface and communicates with backend APIs.<br>
+Express.js & Node.js manage server logic and REST APIs. <br>
+MongoDB stores users, courses, lessons, and enrollments. <br>
+Cloudinary is used for media storage. <br>
+JWT tokens secure user sessions. <br>
+The frontend sends requests to the backend APIs, which process data and interact with MongoDB.<br> Responses are returned in JSON format. <br>
 
-# 🎯 Objective
+#### 🎯 Objective
 
 The main objective of this LMS is to provide a scalable and user-friendly online learning platform that supports digital education by enabling instructors to deliver content and students to learn anytime, anywhere.

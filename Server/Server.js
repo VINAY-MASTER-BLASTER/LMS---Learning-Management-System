@@ -4,8 +4,8 @@ const cors = require('cors')
 const ConnectDB = require('./config/Database')
 
 //! Import Routes 
-// const authRoutes = require()
-// const ProtectedRoutes = require()
+const authRoutes = require('./routes/Auth')
+const ProtectedRoutes = require('./routes/Protected')
 
 const app = express()
 
@@ -25,11 +25,11 @@ app.get('/',(req,res)=>{
 
 
 //! Use auth Routes  
-// app.use('/api/auth')
+app.use('/api/auth',authRoutes)
 
 
 //! Use Protected Routre
-// app.use('api/test')
+app.use('api/test',ProtectedRoutes)
 
 
 //! Start Server 
