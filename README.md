@@ -10,8 +10,11 @@ Database: MongoDB (Mongoose ODM) <br>
 Authentication: JWT (JSON Web Token) <br>
 File Storage: Cloudinary (for videos/images) <br>
 Other Tools: Multer, Bcrypt.js, CORS, Dotenv <br>
+
+
+
 ✨ Key Features <br>
-👨‍🎓 Student Module <br>
+####👨‍🎓 Student Module <br>
 <br>
 <br>
 User registration and login <br>

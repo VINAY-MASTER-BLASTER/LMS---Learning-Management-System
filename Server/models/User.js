@@ -1,6 +1,4 @@
 const mongoose = require('mongoose')
-const bcrypt = require('bcrypt')
-
 //! Defines User Schema
 const userSchema = new mongoose.Schema({
 
@@ -16,19 +14,16 @@ const userSchema = new mongoose.Schema({
         required:true,
         unique:true
     },
-
     //? User's Password (Will be hashed befour saving )
     password:{
-        type:Number,
+        type:String,
         required:true
     },
-
     //? User's Role (Student or teacher)
     role:{
         type:String,
-        required:true,
         default:'Student'
     }
 });
-
-module.exports = userSchema
+const User = mongoose.model('User',userSchema)
+module.exports = User
