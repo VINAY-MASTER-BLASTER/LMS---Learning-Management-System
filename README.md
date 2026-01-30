@@ -14,9 +14,7 @@ Other Tools: Multer, Bcrypt.js, CORS, Dotenv <br>
 
 
 ✨ Key Features <br>
-####👨‍🎓 Student Module <br>
-<br>
-<br>
+#### 👨‍🎓 Student Module <br>
 User registration and login <br>
 Browse available courses <br>
 Enroll in courses <br>
