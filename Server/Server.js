@@ -5,7 +5,7 @@ const ConnectDB = require('./config/Database')
 
 //! Import Routes 
 const authRoutes = require('./routes/Auth')
-// const ProtectedRoutes = require('./routes/Protected')
+const ProtectedRoutes = require('./routes/Protected')
 
 
 
@@ -21,7 +21,6 @@ app.use(express.json())
 //! Basic Route
 
 //? Test Router 
-
 app.get('/',(req,res)=>{
     res.json({massage:"LMS API Server"})
 })
@@ -32,7 +31,7 @@ app.use('/api/auth',authRoutes)
 
 
 //! Use Protected Routre
-// app.use('api/test',ProtectedRoutes)
+app.use('/api/test',ProtectedRoutes)
 
 
 //! Start Server 
