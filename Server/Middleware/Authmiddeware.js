@@ -32,6 +32,8 @@ const authmiddleware = (req,res,next)=>{
         return res.status(401).json({massage:"Invaild token format. Use Bearer Token"})
     }
 
+
+
     // ? Verify the token usin JWT_SECRET
     const decode = jwt.verify(token,process.env.JWT_SECRET_KEY);
     console.log('Token verified for user:',decode)

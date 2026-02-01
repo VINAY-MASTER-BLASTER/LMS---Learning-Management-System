@@ -13,7 +13,7 @@ Other Tools: Multer, Bcrypt.js, CORS, Dotenv <br>
 
 
 ✨ Key Features 
-#### 👨‍🎓 Student Module <br>
+#### 👨‍🎓 Student Module 
 User registration and login <br>
 Browse available courses <br>
 Enroll in courses <br>
