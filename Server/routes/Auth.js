@@ -19,7 +19,7 @@ router.post("/register", async (req, res) => {
         .json({ massage: "Please Provide name, email, and password" });
     }
 
-    //     ? Cheak if user already exists 
+    // ?   Cheak if user already exists 
     // ?   Find the email match inside the database (Using Module)
     const existingUser = await User.findOne({email});
     if (existingUser) {
@@ -36,6 +36,7 @@ router.post("/register", async (req, res) => {
       password:hashedPassword,
       role: role || "student", //? Defult to student if role not provided
     });
+
     //? Save User to Database
     //? Password Will be hashed automatically in the pre-save hook
     await newUser.save();
@@ -92,7 +93,7 @@ router.post("/login", async (req,res)=>{
     //? Create JWT Token 
     const token = jwt.sign(
       {
-        id : uaser.id,
+        id : user.id,
         role : user.role,
       },
       process.env.JWT_SECRET_KEY,
@@ -118,7 +119,6 @@ router.post("/login", async (req,res)=>{
     console.error('Login error : ',error)
     res.status(400).json({massage:"Server error during login"})
   }
-
 })
 
 

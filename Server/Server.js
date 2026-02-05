@@ -6,6 +6,8 @@ const ConnectDB = require('./config/Database')
 //! Import Routes 
 const authRoutes = require('./routes/Auth')
 const ProtectedRoutes = require('./routes/Protected')
+const RoleRoutes = require('./routes/Role')
+const CourseRoutes = require('./routes/Couese')
 
 
 
@@ -27,11 +29,23 @@ app.get('/',(req,res)=>{
 
 
 //! Use auth Routes - Register and Login
+//? SETP - 1
 app.use('/api/auth',authRoutes)
 
 
 //! Use Protected Routre
+//? SETP - 2
 app.use('/api/test',ProtectedRoutes)
+
+
+//! Use role Routre as a - student techers 
+//? STEP - 3
+// app.use('/api/role',RoleRoutes)
+
+
+//! Use role Routre as a - student techers
+//? STEP - 4 
+app.use('/api/course',CourseRoutes)
 
 
 //! Start Server 

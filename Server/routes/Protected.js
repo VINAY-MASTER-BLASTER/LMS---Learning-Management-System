@@ -4,12 +4,12 @@ const authMiddleware = require('../Middleware/Authmiddeware');
 const router = express.Router();
 
 // ============================================
-// PROTECTED ROUTE
+// ? PROTECTED ROUTE
 // ============================================
-// This route uses authMiddleware to check if user has valid token
+// ?This route uses authMiddleware to check if user has valid token
 router.get('/protected', authMiddleware, (req, res) => {
-  // If we reach here, it means token was valid
-  // req.user contains the decoded token data
+  //? If we reach here, it means token was valid
+  //? req.user contains the decoded token data
   
   console.log('User accessed protected route:', req.user.id);
 

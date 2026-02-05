@@ -1,24 +1,29 @@
 //! Course Module 
 
 const mongoose = require('mongoose')
-const User = require('./User')
 
-const courseSchema = mongoose.Schema({
+//? Defining the course Schema 
+const courseSchema = new mongoose.Schema({
 
     //? Course Title 
     title:{
         type:String,
         require:true
     },
+
+    //? Course description
     description:{
-        type:String,
-        require:true
+        type:String
     },
+
+    //? Teacher who create the course 
     teacher:{
-        type:mongoose.Schema.type.ObjectID,
-        ref : 'User'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
     }
 })
 
+//? Created course module from Schema 
 const Course = mongoose.model('course',courseSchema)
 module.exports = Course
