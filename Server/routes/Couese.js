@@ -12,7 +12,7 @@ const router = express.Router();
 router.post("/create",Authmiddeware,Rolemiddleware("teacher"),async (req, res) => {
     try {
       //? Get Title and descipation from request body
-      const { title, description, teacherId } = req.body;
+      const { title, description} = req.body;
 
       //? Cheak if title is provided
       if (!title) {
@@ -53,5 +53,31 @@ router.post("/create",Authmiddeware,Rolemiddleware("teacher"),async (req, res) =
     }
   },
 );
+
+
+
+// ============================================
+//! GET ALL COURSES ROUTE
+// ============================================
+// !Only students can view all courses
+router.get('/all', Authmiddeware, Rolemiddleware('student'), async (req, res) => {
+  try {
+    console.log('Student', req.user.id, 'fetching all courses');
+
+    //? Find all courses from database
+    const courses = await Course.find();
+
+    console.log('Found', courses.length, 'courses');
+
+    //? Send list of courses
+    res.status(200).json({
+      message: 'Courses retrieved successfully',
+      courses: courses,
+    });
+  } catch (error) {
+    console.error('Error fetching courses:', error);
+    res.status(500).json({ message: 'Server error while fetching courses' });
+  }
+});
 
 module.exports = router;

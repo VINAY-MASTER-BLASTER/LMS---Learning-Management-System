@@ -17,10 +17,9 @@ const courseSchema = new mongoose.Schema({
     },
 
     //? Teacher who create the course 
-    teacher:{
+    teacherId:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true,
+        ref: 'User'
     }
 })
 
