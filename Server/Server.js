@@ -8,6 +8,7 @@ const authRoutes = require('./routes/Auth')
 const ProtectedRoutes = require('./routes/Protected')
 const RoleRoutes = require('./routes/Role')
 const CourseRoutes = require('./routes/Couese')
+const LeactureRoutes = require('./routes/Lecture')
 
 
 
@@ -46,6 +47,11 @@ app.use('/api/test',ProtectedRoutes)
 //! Use role Routre as a - student techers
 //? STEP - 4 
 app.use('/api/course',CourseRoutes)
+
+
+//? STEP - 5
+//! Teacher can add leacture and student watch the lecture 
+app.use('/api/lecture',LeactureRoutes)
 
 
 //! Start Server 

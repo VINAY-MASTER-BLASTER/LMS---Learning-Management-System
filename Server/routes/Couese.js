@@ -1,6 +1,6 @@
 const express = require("express");
 const Course = require("../models/Course");
-// const Enrollment = require('../models/Enrollment')
+const Enrollment = require('../models/Enrollment')
 const Authmiddeware = require("../Middleware/Authmiddeware");
 const Rolemiddleware = require("../Middleware/Rolemiddleware");
 
@@ -77,6 +77,67 @@ router.get('/all', Authmiddeware, Rolemiddleware('student'), async (req, res) =>
   } catch (error) {
     console.error('Error fetching courses:', error);
     res.status(500).json({ message: 'Server error while fetching courses' });
+  }
+});
+
+
+
+
+// ============================================
+//! ENROLL IN COURSE ROUTE
+// ============================================
+//! Only students can enroll
+router.post('/enroll', Authmiddeware, Rolemiddleware('student'), async (req, res) => {
+  try {
+    //? Get courseId from request body
+    const { courseId } = req.body;
+
+    //? Check if courseId is provided
+    if (!courseId) {
+      return res.status(400).json({ message: 'Please provide a courseId' });
+    }
+
+    console.log('Student', req.user.id, 'enrolling in course:', courseId);
+
+    //? Check if course exists
+    const course = await Course.findById(courseId);
+    if (!course) {
+      return res.status(404).json({ message: 'Course not found' });
+    }
+
+    //? Check if student is already enrolled
+    const existingEnrollment = await Enrollment.findOne({
+      studentId: req.user.id,
+      courseId: courseId,
+    });
+
+    if (existingEnrollment) {
+      return res.status(400).json({ message: 'You are already enrolled in this course' });
+    }
+
+    //? Create new enrollment
+    const newEnrollment = new Enrollment({
+      studentId: req.user.id, //? Current logged-in student
+      courseId: courseId,
+    });
+
+    //? Save enrollment to database
+    await newEnrollment.save();
+
+    console.log('Student enrolled successfully');
+
+    //? Send success response
+    res.status(201).json({
+      message: 'Enrolled in course successfully',
+      enrollment: {
+        id: newEnrollment._id,
+        studentId: newEnrollment.studentId,
+        courseId: newEnrollment.courseId,
+      },
+    });
+  } catch (error) {
+    console.error('Error enrolling in course:', error);
+    res.status(500).json({ message: 'Server error while enrolling in course' });
   }
 });
 
